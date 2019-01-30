@@ -1,5 +1,6 @@
 import "./styles.css";
 import store from './redux';
+import actions from './redux/actions/task';
 
 const selectors = {
     taskInput: '.taskInput',
@@ -26,9 +27,17 @@ const addTaskItemListeners = () => {
     ).map(task => {
         task.querySelector(selectors.taskStatus).addEventListener('change', (e) => {
             const id = e.target.getAttribute('data-id');
+            if (e.target.checked) {
+                store.dispatch(actions.markTodoAsDone(id));
+            } else {
+                store.dispatch(actions.unmarkTodoAsDone(id));
+            }
         });
         task.querySelector(selectors.taskRemove).addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
+            if (confirm('Deseja realmente remover esta tarefa?')) {
+                store.dispatch(actions.removeTodo(id));
+            }
         });
     });
 };
@@ -36,6 +45,7 @@ const addTaskItemListeners = () => {
 document.querySelector(selectors.taskSubmit).addEventListener('click', () => {
     const task = document.querySelector(selectors.taskInput).value;
     document.querySelector(selectors.taskInput).value = '';
+    store.dispatch(actions.addTodo(task));
 });
 
 renderTasks(store.getState());
