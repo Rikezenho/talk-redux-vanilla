@@ -39,3 +39,7 @@ document.querySelector(selectors.taskSubmit).addEventListener('click', () => {
 });
 
 renderTasks(store.getState());
+
+store.subscribe(() => {
+    renderTasks(store.getState());
+});
