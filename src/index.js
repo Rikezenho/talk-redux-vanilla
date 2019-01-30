@@ -1,6 +1,7 @@
 import "./styles.css";
 import store from './redux';
 import actions from './redux/actions/task';
+import { saveState } from './redux/localStorage';
 
 const selectors = {
     taskInput: '.taskInput',
@@ -54,4 +55,5 @@ addTaskItemListeners();
 store.subscribe(() => {
     renderTasks(store.getState());
     addTaskItemListeners();
+    saveState(store.getState());
 });
