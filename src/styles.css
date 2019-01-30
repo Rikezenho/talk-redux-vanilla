@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.panel-block {
+  display: block;
+}

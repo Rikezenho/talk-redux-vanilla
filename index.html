@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>To-do Vanilla</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+	<div id="app" class="section wrapper">
+		<div class="content">
+			<h1 class="title">Todo List Vanilla</h1>
+			<div class="field is-grouped">
+				<div class="control is-expanded has-icons-left">
+					<input class="input taskInput" type="text" />
+					<span class="icon is-small is-left"><i class="fas fa-list-alt"></i></span>
+				</div>
+				<div class="control">
+					<button class="button is-info taskSubmit">Add</button>
+				</div>
+			</div>
+			<nav class="panel">
+				<div class="panel-block taskItem">
+					<div class="is-pulled-right"><a href="#" class="taskRemove" data-id="">Remover</a></div>
+					<input type="checkbox" class="taskStatus" data-id="">
+					Todo list
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<script src="src/index.js">
+	</script>
+</body>
+
+</html>
