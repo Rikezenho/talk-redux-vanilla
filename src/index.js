@@ -35,7 +35,7 @@ const addTaskItemListeners = () => {
         });
         task.querySelector(selectors.taskRemove).addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
-            if (confirm('Deseja realmente remover esta tarefa?')) {
+            if (window.confirm('Deseja realmente remover esta tarefa?')) {
                 store.dispatch(actions.removeTodo(id));
             }
         });
@@ -49,7 +49,9 @@ document.querySelector(selectors.taskSubmit).addEventListener('click', () => {
 });
 
 renderTasks(store.getState());
+addTaskItemListeners();
 
 store.subscribe(() => {
     renderTasks(store.getState());
+    addTaskItemListeners();
 });
