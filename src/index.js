@@ -1,4 +1,5 @@
 import "./styles.css";
+import store from './redux';
 
 const selectors = {
     taskInput: '.taskInput',
@@ -10,7 +11,13 @@ const selectors = {
 };
 
 const renderTasks = (state) => {
-
+    document.querySelector(selectors.taskList).innerHTML = state.map((task, index) => {
+        return `<div class="panel-block taskItem">
+            <div class="is-pulled-right"><a href="#" class="taskRemove" data-id="${index}">Remover</a></div>
+            <input type="checkbox" class="taskStatus" data-id="${index}" ${task.isDone ? 'checked' : ''}>
+            ${task.title}
+        </div>`
+    }).join('');
 };
 
 const addTaskItemListeners = () => {
@@ -30,3 +37,5 @@ document.querySelector(selectors.taskSubmit).addEventListener('click', () => {
     const task = document.querySelector(selectors.taskInput).value;
     document.querySelector(selectors.taskInput).value = '';
 });
+
+renderTasks(store.getState());
