@@ -1,5 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import tasksReducer from './reducers/task';
 
-export default createStore(tasksReducer, devToolsEnhancer());
+export default applyMiddleware(thunk)(createStore)(tasksReducer, devToolsEnhancer());
