@@ -17,9 +17,9 @@ $ yarn start
 
 ---
 
-## Steps
+## Branches
 
-0. Estrutura HTML inicial
+- master: Estrutura HTML inicial
 1. Criando arquivos da store, actions e reducers
 2. Criando o reducer e conectando à store
 3. Adicionando estado inicial ao reducer e fazendo primeira renderização
@@ -32,3 +32,9 @@ $ yarn start
 10. Aplicando um middleware (redux-thunk) ao Redux
 11. Criando uma action assíncrona para demonstar o redux-thunk
 12. BÔNUS: Redux persistindo no localStorage
+
+---
+
+## Apresentação
+
+https://docs.google.com/presentation/d/1QZGAVYxQ-Za1rJfu2uY2-PtmnDuX-AOhzl4_hi8jBaA/edit#slide=id.g4dcc4c4a1a_0_493
