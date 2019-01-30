@@ -1,7 +1,13 @@
-const addTodo = (task) => ({
-    type: 'ADD_TODO',
-    payload: task
-});
+const addTodo = (task) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({
+                type: 'ADD_TODO',
+                payload: task
+            });
+        }, 1000);
+    }
+};
 
 const removeTodo = (id) => ({
     type: 'REMOVE_TODO',
